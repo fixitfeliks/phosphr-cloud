@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<div class="main-container">
+  <div class="w3-row">
+    <div class="w3-col" style="width:20%;height:100%;">
+      <!--Left Side Nav Bar-->
+      <% include ../partials/navbar %>
+    </div>
+    <div class ="w3-col" style="width:80%;height:100%;">
+      <!--Header-->
+      <% include ../partials/header %>
+      <div class="w3-row" style="width:60%;height:100%;margin-left:10%;">
+        <!--Main Content-->
+        <div style="font-size:20px;font-family:calibri;padding-top:10px;">
+          <h4><b>Register</b><h4>
+          <p>
+          <% if (typeof errMsg === 'undefined') { %>
+            We don't need all your information, you can even give us a fake email... but good luck
+             reseting your password if you forget it...
+          <% } else { %>
+          <p style="color:red"><%=  errMsg %></p>
+          <% } %>
+           </p>
+          <p>
+          <form class="w3-container w3-card-4" action="/register" method="post">
+            <p>
+            <input class="w3-input" type="text" style="width:100%" name="username" required>
+            <label class="w3-label w3-validate">Email</label></p>
+            <p>
+            <input class="w3-input" type="password" style="width:100%" name="password" required>
+            <label class="w3-label w3-validate">Password</label></p>
+            <input class="w3-input" type="password" style="width:100%" name="cpassword" required>
+            <label class="w3-label w3-validate">Verify Password</label></p>
+            <p>
+              <input type="hidden" name="redirect">
+              <input type="hidden" name="client_id">
+              <input type="hidden" name="redirect_uri">
+              <input type="hidden" name="state">
+            </p>
+            <input class="w3-btn w3-section w3-black w3-ripple" type="submit" value="Register" style="width:100%;" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <% include ../partials/footer %>
+  </div>
+</div>
+</body>
+</html>

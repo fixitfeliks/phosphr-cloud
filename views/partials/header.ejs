@@ -1,0 +1,18 @@
+<div  class="w3-row"
+      style=" text-align:right;
+              font-size:18px;width:100%;
+              font-family:calibri;
+              padding:10px;">
+  <% if( typeof user !== 'undefined' ) {%>
+  <form action="/logout" method="get">
+    Welcome <%=  user.username %> &nbsp;&nbsp; <input type="submit" class="w3-btn w3-black w3-ripple" style="30px;" value="Log Out"  />
+  </form>
+  <% } else { %>
+    <form action="/register" method="get">
+      <input type="submit" class="w3-btn w3-black w3-ripple" style="width:120px;height:40px;float:right;" value="Sign Up"  />
+    </form>
+    <form action="/login" method="get">
+      <input type="submit" class="w3-btn w3-black w3-ripple" style="width:120px;height:40px;float:right;margin-right:10px;" value="Login"  />
+    </form>
+  <% } %>
+</div>
